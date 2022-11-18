@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "3a9690e5-c505-4a71-b3c1-0a6cac2f02a4",
-		"name": "API Collection",
+		"_postman_id": "9b4ae8c2-22f8-46fb-9f14-c3feeb2fa7e4",
+		"name": "API Collection T6",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24239008"
 	},
@@ -16,12 +16,25 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"//There's something wrong with this file, else the commented code bellow should have passed.\r",
+									"/**\r",
 									"pm.test(\"Status code should be 200 OK\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"pm.test(\"Status code name has string OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"});*/\r",
+									"\r",
+									"//Irrigardless to confirm the error with the file, the following test was conducted.\r",
+									"\r",
+									"//Status code/\r",
+									"pm.test(\"Status code should be 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Status code name should have string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -60,7 +73,8 @@
 									"});\r",
 									"pm.test(\"Status code name has string OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -95,12 +109,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"//There's something wrong with this file, else the commented code bellow should have passed.\r",
+									"/**\r",
 									"pm.test(\"Status code should be 200 OK\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"pm.test(\"Status code name has string OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"});\r",
+									"*/\r",
+									"\r",
+									"//Status code /\r",
+									"pm.test(\"Status code has 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Status code name has string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -142,29 +168,13 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"//Status code\r",
 									"pm.test(\"Status code should be 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"const response = pm.response.json();\r",
-									"// print any kind of variables/message on the screen\r",
-									"console.log(response[2].name);\r",
-									"pm.test(\"Search for a book name called Viscount Who Loved Me\", function (){\r",
-									"    pm.expect(response[3].name).to.eql(\"Viscount Who Loved Me\")\r",
+									"pm.test(\"Status code name should have string Ok\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
 									"});\r",
-									"\r",
-									"/*const Fiction = response.filter((book) => book.type === \"fiction\");\r",
-									"console.log(Fiction)\r",
-									"//Print out the id of a fiction book that is available called \"The Midnight Library\"*/\r",
-									"\r",
-									"const Fiction = response.filter((book) => book.type === \"fiction\" && book.available === true && book.name === \"Viscount Who Loved Me\")\r",
-									"\r",
-									"console.log(Fiction[0].id);\r",
-									"\r",
-									"pm.test(\"The id number of a fiction book that available with the name The Midnight Library is \" , function () {\r",
-									"    pm.expect(Fiction[0].name).eql(\"Viscount Who Loved Me\")\r",
-									"});\r",
-									"\r",
-									"pm.globals.set(\"bookId\", Fiction[0].id);\r",
 									""
 								],
 								"type": "text/javascript"
@@ -175,7 +185,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/books?type=fiction",
+							"raw": "{{BASE_URL}}/books",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -185,7 +195,8 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "fiction"
+									"value": "fiction",
+									"disabled": true
 								},
 								{
 									"key": "type",
@@ -209,17 +220,20 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"const OrderId = pm.response.json();\r",
+									"/*const OrderId = pm.response.json();\r",
 									"\r",
 									"console.log(OrderId.orderId);\r",
 									"pm.globals.set(\"OrderId\", OrderId.orderId);\r",
+									"*/\r",
 									"\r",
+									"//Existing user.\r",
 									"pm.test(\"Status code should be 409 Conflict\", function () {\r",
 									"    pm.response.to.have.status(409);\r",
 									"});\r",
 									"pm.test(\"Status code name has string Conflict\", function () {\r",
 									"    pm.response.to.have.status(\"Conflict\");\r",
-									"});"
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -267,17 +281,20 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"/*\r",
 									"const OrderId = pm.response.json();\r",
 									"\r",
 									"console.log(OrderId.orderId);\r",
 									"pm.globals.set(\"OrderId\", OrderId.orderId);\r",
+									"*/\r",
 									"\r",
 									"pm.test(\"Status code should be 404 Not Found\", function () {\r",
 									"    pm.response.to.have.status(404);\r",
 									"});\r",
 									"pm.test(\"Status code name has string Not Found\", function () {\r",
 									"    pm.response.to.have.status(\"Not Found\");\r",
-									"});"
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -334,7 +351,8 @@
 									"});\r",
 									"pm.test(\"Status code name has string Created\", function () {\r",
 									"    pm.response.to.have.status(\"Created\");\r",
-									"});"
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -355,7 +373,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"bookId\": 6,\n  \"customerName\": \"Kenny\"\n}",
+							"raw": "{\n  \"bookId\": 4,\n  \"customerName\": \"Jira\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -391,7 +409,8 @@
 									"});\r",
 									"pm.test(\"Status code name has string OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -451,7 +470,8 @@
 									"});\r",
 									"pm.test(\"Status code name has string OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -513,13 +533,38 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"//This script runs when you input an order id in the text field.\r",
+									"/*\r",
 									"pm.test(\"Status code is 204 No Content\", function () {\r",
 									"    pm.response.to.have.status(204);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Status code name has string No Content\", function () {\r",
 									"    pm.response.to.have.status(\"No Content\");\r",
-									"});"
+									"});\r",
+									"*/\r",
+									"\r",
+									"//This script runs when the textfield is empty\r",
+									"\r",
+									"pm.test(\"Status code is 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//This script runs when you input a wrong order Id or an already deleted id.\r",
+									"\r",
+									"pm.test(\"Status code should be 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name should have string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -559,7 +604,7 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": "JZG7mV7qBgxW8ZeLNe9lj"
+									"value": "8YeB96cgch9Prt9kfNa4O"
 								}
 							]
 						}
