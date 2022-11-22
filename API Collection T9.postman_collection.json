@@ -1,0 +1,1136 @@
+{
+	"info": {
+		"_postman_id": "3a9690e5-c505-4a71-b3c1-0a6cac2f02a4",
+		"name": "API Collection T9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24239008"
+	},
+	"item": [
+		{
+			"name": "Get all Todo Entries",
+			"item": [
+				{
+					"name": "Get All Todo Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//There's something wrong with this file, else the commented code bellow should have passed.\r",
+									"/**\r",
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});*/\r",
+									"\r",
+									"//Irrigardless to confirm the error with the file, the following test was conducted.\r",
+									"\r",
+									"//Status code/\r",
+									"pm.test(\"Status code should be 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Status code name should have string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"//This validates the response body display\r",
+									"pm.test(\"validate response body display\", function () {\r",
+									"    pm.response.to.have.body(\r",
+									"        {\r",
+									"        \"success\": false,\r",
+									"        \"title\": \"Internal Server Error\",\r",
+									"        \"message\": \"Unknown location\"\r",
+									"        }\r",
+									"        );\r",
+									"});\r",
+									"\r",
+									"//body response display should contain \"success\": false, \"title\": \"Internal Server Error\", \"message\": \"Unknown location\" /\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Body response contains false\", function () {   \r",
+									"    pm.expect(jsonData.success).to.eql(false);\r",
+									"});\r",
+									"pm.test(\"Body response contains Internal Server Error\", function () {   \r",
+									"    pm.expect(jsonData.title).to.eql(\"Internal Server Error\");\r",
+									"});\r",
+									"pm.test(\"Body response contains Unknown location\", function () {   \r",
+									"    pm.expect(jsonData.message).to.eql(\"Unknown location\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string success:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+									"});\r",
+									"pm.test(\"Body matches string title:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+									"});\r",
+									"pm.test(\"Body matches string message:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"message\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/todo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get All Entries",
+			"item": [
+				{
+					"name": "Get All Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}",
+							"host": [
+								"{{base_url}}"
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get entry per ID",
+			"item": [
+				{
+					"name": "Get entry per ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//There's something wrong with this file, else the commented code bellow should have passed.\r",
+									"/**\r",
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									"//Status code /\r",
+									"pm.test(\"Status code has 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Status code name has string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"//This validates the response body display\r",
+									"pm.test(\"validate response body display\", function () {\r",
+									"    pm.response.to.have.body(\r",
+									"        {\r",
+									"        \"success\": false,\r",
+									"        \"title\": \"Internal Server Error\",\r",
+									"        \"message\": \"Unknown location\"\r",
+									"        }\r",
+									"        );\r",
+									"});\r",
+									"\r",
+									"//body response display should contain \"success\": false, \"title\": \"Internal Server Error\", \"message\": \"Unknown location\" /\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Body response contains false\", function () {   \r",
+									"    pm.expect(jsonData.success).to.eql(false);\r",
+									"});\r",
+									"pm.test(\"Body response contains Internal Server Error\", function () {   \r",
+									"    pm.expect(jsonData.title).to.eql(\"Internal Server Error\");\r",
+									"});\r",
+									"pm.test(\"Body response contains Unknown location\", function () {   \r",
+									"    pm.expect(jsonData.message).to.eql(\"Unknown location\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string success:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+									"});\r",
+									"pm.test(\"Body matches string title:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+									"});\r",
+									"pm.test(\"Body matches string message:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"message\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/todo/?todo_id=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								""
+							],
+							"query": [
+								{
+									"key": "todo_id",
+									"value": "2"
+								}
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/todo/:todo_id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get all orders",
+			"item": [
+				{
+					"name": "Get all orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"// print any kind of variables/message on the screen\r",
+									"const response = pm.response.json();\r",
+									"console.log(response);\r",
+									"console.log(response[0].customerName);\r",
+									"console.log(response[2].customerName);\r",
+									"console.log(response[4].bookId);\r",
+									"console.log(response[1].customerName);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Search for all orders placed by John\", function (){\r",
+									"    pm.expect(response[4].customerName).to.eql(\"John\")\r",
+									"});\r",
+									"\r",
+									"const John = response.filter((order) => order.customerName === \"John\");\r",
+									"console.log(John)\r",
+									"\r",
+									"//Print out an order id placed by the customer named \"Kenny\"\r",
+									" \r",
+									"const Kenny = response.filter((order) => order.customerName === \"Kenny\" && order.bookId === 5 && order.quantity === 1)\r",
+									"console.log(Kenny[0].id);\r",
+									"\r",
+									"pm.test(\"The order id placed by the customer named Kenny\", function () {\r",
+									"    pm.expect(Kenny[0].id).eql(\"LR1ViW6cnunD4holDu5lD\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for an order placed by Mac\", function () {    \r",
+									"    pm.expect(response[7].customerName).to.eql(\"Mac\");\r",
+									"});\r",
+									"pm.test(\"Verify that the entry 0 has the customerName John\", function () {    \r",
+									"    pm.expect(response[0].customerName).to.eql(\"Jira\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify that the book Id 3 was placed by Fraco\", function () {    \r",
+									"    pm.expect(response[8].bookId).to.eql(3);\r",
+									"});    \r",
+									"\r",
+									"pm.test(\"Verify that timestamp equals 1668202895887\", function () {    \r",
+									"    pm.expect(response[0].timestamp).to.eql(1669097837173);\r",
+									"}); \r",
+									"\r",
+									"pm.test(\"Confirm that response body contains quantity property\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+									"});\r",
+									"pm.test(\"Confirm that response body contains timestamp\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"timestamp\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/orders",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Books",
+			"item": [
+				{
+					"name": "Get Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"console.log(response);\r",
+									"console.log(response[2].name); \r",
+									"console.log(response[4].type);\r",
+									"console.log(response[0].type);\r",
+									"console.log(response[0].available);\r",
+									"console.log(response[1].available);\r",
+									"console.log(response[0].id)\r",
+									"\r",
+									"pm.environment.set(\"entityType1\", response[0].type);\r",
+									"pm.environment.set(\"entityType2\", response[4].type);\r",
+									"pm.environment.set(\"entityAvailability1\", response[0].available);\r",
+									"pm.environment.set(\"entityAvailability2\", response[1].available);\r",
+									"\r",
+									"\r",
+									"//Status code\r",
+									"pm.test(\"Status code should be 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name should have string Ok\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"// print any kind of variables/message on the screen\r",
+									"\r",
+									"pm.test(\"Search for a book name called The Vanishing Half\", function (){\r",
+									"    pm.expect(response[2].name).to.eql(\"The Vanishing Half\")\r",
+									"});\r",
+									"\r",
+									"/*\r",
+									"const Fiction = response.filter((book) => book.type === \"fiction\");\r",
+									"console.log(Fiction)\r",
+									"*/\r",
+									"\r",
+									"//Print out the id of a fiction book that is available called \"The Midnight Library\"\r",
+									"/*\r",
+									"const Fiction = response.filter((book) => book.type === \"fiction\" && book.available === true && book.name === \"Viscount Who Loved Me\")\r",
+									"console.log(Fiction[0].id);\r",
+									"\r",
+									"pm.test(\"The id number of a fiction book that is available with the name Viscount Who Loved Me \" , function () {\r",
+									"    pm.expect(Fiction[0].name).eql(\"Viscount Who Loved Me\")\r",
+									"});\r",
+									"*/\r",
+									"/*\r",
+									"const nonFiction = response.filter((book) => book.type === \"non-fiction\");\r",
+									"console.log(nonFiction)\r",
+									"*/\r",
+									"\r",
+									"//Print out the id of a non-fiction book that is not available called \"Just as I Am\"\r",
+									"\r",
+									"const nonFiction = response.filter((book) => book.type === \"non-fiction\" && book.available === false && book.name === \"Just as I Am\")\r",
+									"console.log(nonFiction[0].id);\r",
+									"\r",
+									"pm.test(\"The id number of a non-fiction book that is not available with the name Just as I Am \" , function () {\r",
+									"    pm.expect(nonFiction[0].name).eql(\"Just as I Am\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for a book with bookid 1\", function () {    \r",
+									"    pm.expect(response[0].id).to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Verify that the entry 0 has the book name The Russian\", function () {    \r",
+									"    pm.expect(response[0].name).to.eql(\"The Russian\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify that the book Just as I am is non-fiction\", function () {    \r",
+									"    pm.expect(response[1].type).to.eql(\"non-fiction\");\r",
+									"});    \r",
+									"\r",
+									"pm.test(\"Confirm that response body contains name property\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"});\r",
+									"pm.test(\"Confirm that response body contains an available property\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"available\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlBooks}}/books",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "{{entityType1}}",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "{{entityType2}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books valid book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//Status code\r",
+									"pm.test(\"Status code should be 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name should have string Ok\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Search for a book name called The Vanishing Half\", function (){\r",
+									"    pm.expect(response[2].name).to.eql(\"The Vanishing Half\")\r",
+									"});\r",
+									"\r",
+									"// print any kind of variables/message on the screen\r",
+									"console.log(response);\r",
+									"console.log(response[5].id);\r",
+									"pm.environment.set(\"bookId-VI\", response[5].id);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlBooks}}/books",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "{{entityType1}}",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "{{entityType2}}",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "{{bookId-I}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POSTs",
+			"item": [
+				{
+					"name": "Reg API client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/*const OrderId = pm.response.json();\r",
+									"\r",
+									"console.log(OrderId.orderId);\r",
+									"pm.globals.set(\"OrderId\", OrderId.orderId);\r",
+									"*/\r",
+									"\r",
+									"//Error is displayed becaause the client is an existing user.\r",
+									"pm.test(\"Status code should be 409 Conflict\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});\r",
+									"pm.test(\"Status code name has string Conflict\", function () {\r",
+									"    pm.response.to.have.status(\"Conflict\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the displayon the response body\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql(\"API client already registered. Try a different email.\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm there is an error in the response body\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
+									"});\r",
+									"//This validates the response body display\r",
+									"pm.test(\"confirm error on the response body display\", function () {\r",
+									"    pm.response.to.have.body({\"error\":\"API client already registered. Try a different email.\"});\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//For a new user. Another script will be created\r",
+									"/*\r",
+									"pm.test(\"Status code should be 201 \", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Status code name has string created\", function () {\r",
+									"    pm.response.to.have.status(\"created\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Confirm the display on the response body\", function () {\r",
+									"    pm.expect(jsonData.created).to.eql(true);\r",
+									"});\r",
+									"pm.test(\"Confirm the display on the response body\", function () {\r",
+									"    pm.expect(jsonData.bearerToken).to.eql(bearerToken);\r",
+									"});\r",
+									"pm.test(\"Confirm there is a bearerToken in the response body\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"bearerToken\");\r",
+									"});\r",
+									"//This validates the response body display\r",
+									"pm.test(\"confirm error on the response body display\", function () {\r",
+									"    pm.response.to.have.body({\r",
+									"        \"created\":\"true\",\r",
+									"        \"bearerToken\": \"bearerToken\"\r",
+									"        });\r",
+									"});\r",
+									"*/"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientName\": \"Jtalk\",\n  \"clientEmail\": \"adingzJtalk@mailinator.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/api-clients/",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"api-clients",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place a book order for an available book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const OrderId = pm.response.json();\r",
+									"\r",
+									"console.log(OrderId.orderId);\r",
+									"pm.environment.set(\"OrderId\", OrderId.orderId);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code should be 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Status code name has string Created\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"//This script should pass with the current created id inputted.\r",
+									"/*\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\r",
+									"    {\r",
+									"    \"created\": true,\r",
+									"    \"orderId\": \"83QBYqlj7eLrZikmJhu1N\"\r",
+									"    }\r",
+									"    );\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"pm.test(\"Confirm that created has a variable of true\", function () {\r",
+									"    pm.expect(response.created).to.eql(true);\r",
+									"});\r",
+									"pm.test(\"Verify that orderId is available in the body response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"orderId\");\r",
+									"});\r",
+									"pm.test(\"Verify that created is present in the body response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bookId\": {{bookId-VI}},\n  \"customerName\": \"Ben\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/orders",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place a book order unavailable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"console.log(response);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"//pm.environment.set(\"entityType1\", response[0].type);\r",
+									"\r",
+									"/*\r",
+									"const OrderId = pm.response.json();\r",
+									"\r",
+									"console.log(OrderId.orderId);\r",
+									"pm.globals.set(\"OrderId\", OrderId.orderId);\r",
+									"*/\r",
+									"\r",
+									"pm.test(\"Status code should be 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Status code name has string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"//Reason for error message is because this particular order is out of stock.\r",
+									"\r",
+									"pm.test(\"Confirm that this book is out of stock is present\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"This book is not in stock\");\r",
+									"});\r",
+									"pm.test(\"Confirm if try again is present\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Try again later.\");\r",
+									"});\r",
+									"pm.test(\"confirm error on the response body display\", function () {\r",
+									"    pm.response.to.have.body({\"error\":\"This book is not in stock. Try again later.\"});\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify error message equates out of stock\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql(\"This book is not in stock. Try again later.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bookId\": {{bookId-II}},\n  \"customerName\": \"Jay\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/orders",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get an order",
+			"item": [
+				{
+					"name": "Get an order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// print any kind of variables/message on the screen\r",
+									"const response = pm.response.json();\r",
+									"console.log(response);\r",
+									"console.log(response.customerName);\r",
+									"console.log(response.id);\r",
+									"console.log(response.bookId);\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify customerName is Ben\", function (){\r",
+									"    pm.expect(response.customerName).to.eql(\"Ben\")\r",
+									"});\r",
+									"\r",
+									"//Print out the order id placed by the customer named \"Ben\"\r",
+									"\r",
+									"pm.test(\"verify the bookId placed by Ben is correct 6\", function () {    \r",
+									"    pm.expect(response.bookId).to.eql(6);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Confirm that response body contains quantity property\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerName\": \"John\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/orders/:orderId",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "{{OrderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete an order",
+			"item": [
+				{
+					"name": "Delete an order with valid Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//This script runs when you input an order id in the text field.\r",
+									"\r",
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string No Content\", function () {\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//This script runs when the textfield is empty\r",
+									"/*\r",
+									"pm.test(\"Status code is 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"validate response body display\", function () {\r",
+									"    pm.response.to.have.body(\r",
+									"        {\r",
+									"        \"error\": \"No order with id :orderId.\"\r",
+									"        }\r",
+									"        );\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm body response\", function () {   \r",
+									"    pm.expect(jsonData.error).to.eql(\"No order with id :orderId.\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string orderId:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"orderId\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string error:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
+									"});\r",
+									"\r",
+									"/*\r",
+									"//This script runs when you input a wrong order Id or an already deleted id.\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code should be 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name should have string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validate response body display\", function () {\r",
+									"    pm.response.to.have.body(\r",
+									"        {\r",
+									"        \"error\": \"No order with id 8YeB96cgch9Prt9kfNa4O.\"\r",
+									"        }\r",
+									"        );\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm body response\", function () {   \r",
+									"    pm.expect(jsonData.error).to.eql(\"No order with id 8YeB96cgch9Prt9kfNa4O.\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string orderId:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"No order\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string error:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/orders/:orderId",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "{{OrderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an order with invalid Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//This script runs when you input an order id in the text field.\r",
+									"/*\r",
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string No Content\", function () {\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									"//This script runs when the textfield is empty\r",
+									"/*\r",
+									"pm.test(\"Status code is 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"validate response body display\", function () {\r",
+									"    pm.response.to.have.body(\r",
+									"        {\r",
+									"        \"error\": \"No order with id :orderId.\"\r",
+									"        }\r",
+									"        );\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm body response\", function () {   \r",
+									"    pm.expect(jsonData.error).to.eql(\"No order with id :orderId.\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string orderId:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"orderId\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string error:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									"//This script runs when you input a wrong order Id or an already deleted id.\r",
+									"\r",
+									"pm.test(\"Status code should be 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name should have string Not Found\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string orderId:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"No order\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string error:\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
+									"});\r",
+									"pm.test(\"validate response body display\", function () {\r",
+									"    pm.response.to.have.body(\r",
+									"        {\r",
+									"        \"error\": \"No order with id :orderId.\"\r",
+									"        }\r",
+									"        );\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/orders/:orderId",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
