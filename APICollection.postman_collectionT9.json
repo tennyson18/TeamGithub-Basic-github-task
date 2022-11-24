@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "3a9690e5-c505-4a71-b3c1-0a6cac2f02a4",
-		"name": "API Collection T9",
+		"name": "APICollection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24239008"
 	},
@@ -107,7 +107,8 @@
 									"pm.test(\"Status code name has string OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
 									"});\r",
-									""
+									"\r",
+									"postman.setNextRequest(\"Get all orders\");"
 								],
 								"type": "text/javascript"
 							}
@@ -123,6 +124,89 @@
 							]
 						},
 						"description": "https://demo.fusio-project.org/index.php/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API client",
+			"item": [
+				{
+					"name": "Reg API client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"/*\r",
+									"console.log(OrderId.orderId);\r",
+									"pm.globals.set(\"OrderId\", jsonData.orderId);\r",
+									"*/\r",
+									"console.log(jsonData.accessToken)\r",
+									"pm.globals.set(\"apiKey\", jsonData.accessToken);\r",
+									"\r",
+									"\r",
+									"//Error is displayed becaause the client is an existing user.\r",
+									"pm.test(\"Status code should be 409 Conflict\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});\r",
+									"pm.test(\"Status code name has string Conflict\", function () {\r",
+									"    pm.response.to.have.status(\"Conflict\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the displayon the response body\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql(\"API client already registered. Try a different email.\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm there is an error in the response body\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
+									"});\r",
+									"//This validates the response body display\r",
+									"pm.test(\"confirm error on the response body display\", function () {\r",
+									"    pm.response.to.have.body({\"error\":\"API client already registered. Try a different email.\"});\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientName\": \"Ola\",\n  \"clientEmail\": \"benola@mailinator.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlBooks}}/api-clients/",
+							"host": [
+								"{{baseUrlBooks}}"
+							],
+							"path": [
+								"api-clients",
+								""
+							]
+						}
 					},
 					"response": []
 				}
@@ -229,7 +313,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200 OK\", function () {\r",
+									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"pm.test(\"Status code name has string OK\", function () {\r",
@@ -240,39 +324,39 @@
 									"console.log(response);\r",
 									"console.log(response[0].customerName);\r",
 									"console.log(response[2].customerName);\r",
-									"console.log(response[4].bookId);\r",
+									"console.log(response[2].bookId);\r",
 									"console.log(response[1].customerName);\r",
 									"\r",
 									"\r",
-									"pm.test(\"Search for all orders placed by John\", function (){\r",
-									"    pm.expect(response[4].customerName).to.eql(\"John\")\r",
+									"pm.test(\"Search for all orders placed by Ryan\", function (){\r",
+									"    pm.expect(response[4].customerName).to.eql(\"Ryan\")\r",
 									"});\r",
 									"\r",
-									"const John = response.filter((order) => order.customerName === \"John\");\r",
-									"console.log(John)\r",
+									"const Ben = response.filter((order) => order.customerName === \"Ben\");\r",
+									"console.log(Ben)\r",
 									"\r",
 									"//Print out an order id placed by the customer named \"Kenny\"\r",
-									" \r",
+									"/*\r",
 									"const Kenny = response.filter((order) => order.customerName === \"Kenny\" && order.bookId === 5 && order.quantity === 1)\r",
 									"console.log(Kenny[0].id);\r",
 									"\r",
 									"pm.test(\"The order id placed by the customer named Kenny\", function () {\r",
 									"    pm.expect(Kenny[0].id).eql(\"LR1ViW6cnunD4holDu5lD\")\r",
 									"});\r",
-									"\r",
-									"pm.test(\"Search for an order placed by Mac\", function () {    \r",
-									"    pm.expect(response[7].customerName).to.eql(\"Mac\");\r",
+									"*/\r",
+									"pm.test(\"Search for an order placed by Ben\", function () {    \r",
+									"    pm.expect(response[2].customerName).to.eql(\"Ben\");\r",
 									"});\r",
 									"pm.test(\"Verify that the entry 0 has the customerName John\", function () {    \r",
-									"    pm.expect(response[0].customerName).to.eql(\"Jira\");\r",
+									"    pm.expect(response[0].customerName).to.eql(\"Ben\");\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify that the book Id 3 was placed by Fraco\", function () {    \r",
-									"    pm.expect(response[8].bookId).to.eql(3);\r",
+									"    pm.expect(response[5].bookId).to.eql(1);\r",
 									"});    \r",
 									"\r",
-									"pm.test(\"Verify that timestamp equals 1668202895887\", function () {    \r",
-									"    pm.expect(response[0].timestamp).to.eql(1669097837173);\r",
+									"pm.test(\"Verify that timestamp equals 1669194628967\", function () {    \r",
+									"    pm.expect(response[5].timestamp).to.eql(1669194628967);\r",
 									"}); \r",
 									"\r",
 									"pm.test(\"Confirm that response body contains quantity property\", function () {\r",
@@ -515,108 +599,6 @@
 			"name": "POSTs",
 			"item": [
 				{
-					"name": "Reg API client",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"/*const OrderId = pm.response.json();\r",
-									"\r",
-									"console.log(OrderId.orderId);\r",
-									"pm.globals.set(\"OrderId\", OrderId.orderId);\r",
-									"*/\r",
-									"\r",
-									"//Error is displayed becaause the client is an existing user.\r",
-									"pm.test(\"Status code should be 409 Conflict\", function () {\r",
-									"    pm.response.to.have.status(409);\r",
-									"});\r",
-									"pm.test(\"Status code name has string Conflict\", function () {\r",
-									"    pm.response.to.have.status(\"Conflict\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Confirm the displayon the response body\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.error).to.eql(\"API client already registered. Try a different email.\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Confirm there is an error in the response body\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
-									"});\r",
-									"//This validates the response body display\r",
-									"pm.test(\"confirm error on the response body display\", function () {\r",
-									"    pm.response.to.have.body({\"error\":\"API client already registered. Try a different email.\"});\r",
-									"});\r",
-									"\r",
-									"\r",
-									"//For a new user. Another script will be created\r",
-									"/*\r",
-									"pm.test(\"Status code should be 201 \", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"pm.test(\"Status code name has string created\", function () {\r",
-									"    pm.response.to.have.status(\"created\");\r",
-									"});\r",
-									"\r",
-									"var jsonData = pm.response.json();\r",
-									"pm.test(\"Confirm the display on the response body\", function () {\r",
-									"    pm.expect(jsonData.created).to.eql(true);\r",
-									"});\r",
-									"pm.test(\"Confirm the display on the response body\", function () {\r",
-									"    pm.expect(jsonData.bearerToken).to.eql(bearerToken);\r",
-									"});\r",
-									"pm.test(\"Confirm there is a bearerToken in the response body\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"bearerToken\");\r",
-									"});\r",
-									"//This validates the response body display\r",
-									"pm.test(\"confirm error on the response body display\", function () {\r",
-									"    pm.response.to.have.body({\r",
-									"        \"created\":\"true\",\r",
-									"        \"bearerToken\": \"bearerToken\"\r",
-									"        });\r",
-									"});\r",
-									"*/"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{apiKey}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"clientName\": \"Jtalk\",\n  \"clientEmail\": \"adingzJtalk@mailinator.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrlBooks}}/api-clients/",
-							"host": [
-								"{{baseUrlBooks}}"
-							],
-							"path": [
-								"api-clients",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Place a book order for an available book",
 					"event": [
 						{
@@ -635,21 +617,11 @@
 									"pm.test(\"Status code name has string Created\", function () {\r",
 									"    pm.response.to.have.status(\"Created\");\r",
 									"});\r",
-									"//This script should pass with the current created id inputted.\r",
-									"/*\r",
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\r",
-									"    {\r",
-									"    \"created\": true,\r",
-									"    \"orderId\": \"83QBYqlj7eLrZikmJhu1N\"\r",
-									"    }\r",
-									"    );\r",
-									"});\r",
-									"*/\r",
 									"\r",
-									"const response = pm.response.json();\r",
+									"\r",
+									"//const response = pm.response.json();\r",
 									"pm.test(\"Confirm that created has a variable of true\", function () {\r",
-									"    pm.expect(response.created).to.eql(true);\r",
+									"    pm.expect(OrderId.created).to.eql(true);\r",
 									"});\r",
 									"pm.test(\"Verify that orderId is available in the body response\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"orderId\");\r",
@@ -662,6 +634,9 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -677,7 +652,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"bookId\": {{bookId-VI}},\n  \"customerName\": \"Ben\"\n}",
+							"raw": "{\n  \"bookId\": {{bookId-IV}},\n  \"customerName\": \"Louis\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -796,9 +771,8 @@
 									"const response = pm.response.json();\r",
 									"console.log(response);\r",
 									"console.log(response.customerName);\r",
-									"console.log(response.id);\r",
+									"//console.log(response.id);\r",
 									"console.log(response.bookId);\r",
-									"\r",
 									"\r",
 									"\r",
 									"pm.test(\"Status code is 200 OK\", function () {\r",
@@ -808,18 +782,18 @@
 									"    pm.response.to.have.status(\"OK\");\r",
 									"});\r",
 									"\r",
-									"\r",
-									"pm.test(\"Verify customerName is Ben\", function (){\r",
-									"    pm.expect(response.customerName).to.eql(\"Ben\")\r",
+									"/*\r",
+									"pm.test(\"Verify customerName is Louis\", function (){\r",
+									"    pm.expect(response[0].customerName).to.eql(\"Louis\")\r",
 									"});\r",
 									"\r",
-									"//Print out the order id placed by the customer named \"Ben\"\r",
+									"//Print out the order id placed by the customer named \"Louis\"\r",
 									"\r",
-									"pm.test(\"verify the bookId placed by Ben is correct 6\", function () {    \r",
-									"    pm.expect(response.bookId).to.eql(6);\r",
+									"pm.test(\"verify the bookId placed by Louis is correct 4\", function () {    \r",
+									"    pm.expect(response[0].bookId).to.eql(4);\r",
 									"});\r",
 									"\r",
-									"\r",
+									"*/\r",
 									"pm.test(\"Confirm that response body contains quantity property\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"quantity\");\r",
 									"});\r",
@@ -888,13 +862,15 @@
 								"exec": [
 									"//This script runs when you input an order id in the text field.\r",
 									"\r",
-									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"pm.test(\"Status code is 204\", function () {\r",
 									"    pm.response.to.have.status(204);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Status code name has string No Content\", function () {\r",
 									"    pm.response.to.have.status(\"No Content\");\r",
 									"});\r",
+									"\r",
+									"\r",
 									"\r",
 									"\r",
 									"//This script runs when the textfield is empty\r",
@@ -906,6 +882,8 @@
 									"pm.test(\"Status code name has string Not Found\", function () {\r",
 									"    pm.response.to.have.status(\"Not Found\");\r",
 									"});\r",
+									"*/\r",
+									"/*\r",
 									"var jsonData = pm.response.json();\r",
 									"pm.test(\"validate response body display\", function () {\r",
 									"    pm.response.to.have.body(\r",
@@ -1075,15 +1053,14 @@
 									"pm.test(\"Body matches string error:\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"error\");\r",
 									"});\r",
-									"pm.test(\"validate response body display\", function () {\r",
+									"/*pm.test(\"validate response body display\", function () {\r",
 									"    pm.response.to.have.body(\r",
 									"        {\r",
 									"        \"error\": \"No order with id :orderId.\"\r",
 									"        }\r",
 									"        );\r",
 									"});\r",
-									"\r",
-									""
+									"*/"
 								],
 								"type": "text/javascript"
 							}
@@ -1123,7 +1100,7 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": ""
+									"value": "{{Dellorder}}"
 								}
 							]
 						}
