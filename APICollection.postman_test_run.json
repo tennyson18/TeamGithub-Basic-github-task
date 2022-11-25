@@ -1,0 +1,580 @@
+{
+	"id": "9efc86b8-edb1-4ac1-965c-dd122ae8e13a",
+	"name": "APICollection",
+	"timestamp": "2022-11-25T10:46:06.583Z",
+	"collection_id": "24239008-3a9690e5-c505-4a71-b3c1-0a6cac2f02a4",
+	"folder_id": 0,
+	"environment_id": "24239008-e1205b17-207b-4257-83c9-cc7d58fe0cc9",
+	"totalPass": 52,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "dd075697-461b-4743-ba1c-2badd21b024b",
+			"name": "Get All Todo Entries",
+			"url": "https://demo.fusio-project.org/index.php/todo",
+			"time": 746,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code should be 404": true,
+				"Status code name should have string Not Found": true,
+				"validate response body display": true,
+				"Body response contains false": true,
+				"Body response contains Internal Server Error": true,
+				"Body response contains Unknown location": true,
+				"Body matches string success:": true,
+				"Body matches string title:": true,
+				"Body matches string message:": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should have string Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"validate response body display": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body response contains false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body response contains Internal Server Error": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body response contains Unknown location": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string success:": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string title:": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string message:": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				746
+			],
+			"allTests": [
+				{
+					"Status code should be 404": true,
+					"Status code name should have string Not Found": true,
+					"validate response body display": true,
+					"Body response contains false": true,
+					"Body response contains Internal Server Error": true,
+					"Body response contains Unknown location": true,
+					"Body matches string success:": true,
+					"Body matches string title:": true,
+					"Body matches string message:": true
+				}
+			]
+		},
+		{
+			"id": "5e91b9df-a28a-4e29-b3cf-24547af1718b",
+			"name": "Get All Entries",
+			"url": "https://demo.fusio-project.org/index.php",
+			"time": 490,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200 OK": true,
+				"Status code name has string OK": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				490
+			],
+			"allTests": [
+				{
+					"Status code should be 200 OK": true,
+					"Status code name has string OK": true
+				}
+			]
+		},
+		{
+			"id": "593bfc28-ea6f-43ff-b036-ba525a160e4c",
+			"name": "Get all orders",
+			"url": "https://simple-books-api.glitch.me/orders",
+			"time": 1619,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name has string OK": true,
+				"Search for all orders placed by Ryan": true,
+				"Search for an order placed by Ben": true,
+				"Verify that the entry 0 has the customerName John": true,
+				"Verify that the book Id 3 was placed by Fraco": true,
+				"Verify that timestamp equals 1669194628967": true,
+				"Confirm that response body contains quantity property": true,
+				"Confirm that response body contains timestamp": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for all orders placed by Ryan": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for an order placed by Ben": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the entry 0 has the customerName John": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the book Id 3 was placed by Fraco": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that timestamp equals 1669194628967": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that response body contains quantity property": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that response body contains timestamp": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1619
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name has string OK": true,
+					"Search for all orders placed by Ryan": true,
+					"Search for an order placed by Ben": true,
+					"Verify that the entry 0 has the customerName John": true,
+					"Verify that the book Id 3 was placed by Fraco": true,
+					"Verify that timestamp equals 1669194628967": true,
+					"Confirm that response body contains quantity property": true,
+					"Confirm that response body contains timestamp": true
+				}
+			]
+		},
+		{
+			"id": "d9563c19-011e-46fc-92a8-928e0ed9564c",
+			"name": "Get Books",
+			"url": "https://simple-books-api.glitch.me/books",
+			"time": 403,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Status code name should have string Ok": true,
+				"Search for a book name called The Vanishing Half": true,
+				"The id number of a non-fiction book that is not available with the name Just as I Am ": true,
+				"Search for a book with bookid 1": true,
+				"Verify that the entry 0 has the book name The Russian": true,
+				"Verify that the book Just as I am is non-fiction": true,
+				"Confirm that response body contains name property": true,
+				"Confirm that response body contains an available property": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should have string Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for a book name called The Vanishing Half": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The id number of a non-fiction book that is not available with the name Just as I Am ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for a book with bookid 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the entry 0 has the book name The Russian": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the book Just as I am is non-fiction": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that response body contains name property": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that response body contains an available property": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				403
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Status code name should have string Ok": true,
+					"Search for a book name called The Vanishing Half": true,
+					"The id number of a non-fiction book that is not available with the name Just as I Am ": true,
+					"Search for a book with bookid 1": true,
+					"Verify that the entry 0 has the book name The Russian": true,
+					"Verify that the book Just as I am is non-fiction": true,
+					"Confirm that response body contains name property": true,
+					"Confirm that response body contains an available property": true
+				}
+			]
+		},
+		{
+			"id": "e9f43501-b33b-4f99-857e-69dabd44e279",
+			"name": "Get Books valid book",
+			"url": "https://simple-books-api.glitch.me/books",
+			"time": 248,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Status code name should have string Ok": true,
+				"Search for a book name called The Vanishing Half": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should have string Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for a book name called The Vanishing Half": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				248
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Status code name should have string Ok": true,
+					"Search for a book name called The Vanishing Half": true
+				}
+			]
+		},
+		{
+			"id": "52c74cc1-dec4-4d49-8331-7069a25864e5",
+			"name": "Place a book order for an available book",
+			"url": "https://simple-books-api.glitch.me/orders",
+			"time": 507,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code should be 201 Created": true,
+				"Status code name has string Created": true,
+				"Confirm that created has a variable of true": true,
+				"Verify that orderId is available in the body response": true,
+				"Verify that created is present in the body response": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 201 Created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string Created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that created has a variable of true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that orderId is available in the body response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that created is present in the body response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				507
+			],
+			"allTests": [
+				{
+					"Status code should be 201 Created": true,
+					"Status code name has string Created": true,
+					"Confirm that created has a variable of true": true,
+					"Verify that orderId is available in the body response": true,
+					"Verify that created is present in the body response": true
+				}
+			]
+		},
+		{
+			"id": "5e2b1b27-4853-47ee-9b6e-5d10f060afd0",
+			"name": "Place a book order unavailable",
+			"url": "https://simple-books-api.glitch.me/orders",
+			"time": 232,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code should be 404 Not Found": true,
+				"Status code name has string Not Found": true,
+				"Confirm that this book is out of stock is present": true,
+				"Confirm if try again is present": true,
+				"confirm error on the response body display": true,
+				"Verify error message equates out of stock": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 404 Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that this book is out of stock is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm if try again is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm error on the response body display": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify error message equates out of stock": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				232
+			],
+			"allTests": [
+				{
+					"Status code should be 404 Not Found": true,
+					"Status code name has string Not Found": true,
+					"Confirm that this book is out of stock is present": true,
+					"Confirm if try again is present": true,
+					"confirm error on the response body display": true,
+					"Verify error message equates out of stock": true
+				}
+			]
+		},
+		{
+			"id": "89ea75b9-1342-4004-b24f-b2782abb35a5",
+			"name": "Get an order",
+			"url": "https://simple-books-api.glitch.me/orders/J2VQE28eMLxdpJTSMdyda",
+			"time": 393,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 OK": true,
+				"Status code name has string OK": true,
+				"Confirm that response body contains quantity property": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that response body contains quantity property": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				393
+			],
+			"allTests": [
+				{
+					"Status code is 200 OK": true,
+					"Status code name has string OK": true,
+					"Confirm that response body contains quantity property": true
+				}
+			]
+		},
+		{
+			"id": "b288e08e-f78e-42bf-9ecf-b5c703c56ca7",
+			"name": "Delete an order with valid Id",
+			"url": "https://simple-books-api.glitch.me/orders/J2VQE28eMLxdpJTSMdyda",
+			"time": 1157,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Status code name has string No Content": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string No Content": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1157
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Status code name has string No Content": true
+				}
+			]
+		},
+		{
+			"id": "fffcfcd8-1f2d-4ad0-8055-f73cd9b90156",
+			"name": "Delete an order with invalid Id",
+			"url": "https://simple-books-api.glitch.me/orders/zSkjdAl0OOrlXgE639zlY",
+			"time": 312,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code should be 404 ": true,
+				"Status code name should have string Not Found": true,
+				"Body matches string orderId:": true,
+				"Body matches string error:": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 404 ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should have string Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string orderId:": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string error:": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				312
+			],
+			"allTests": [
+				{
+					"Status code should be 404 ": true,
+					"Status code name should have string Not Found": true,
+					"Body matches string orderId:": true,
+					"Body matches string error:": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 6107,
+	"collection": {
+		"requests": [
+			{
+				"id": "dd075697-461b-4743-ba1c-2badd21b024b",
+				"method": "GET"
+			},
+			{
+				"id": "5e91b9df-a28a-4e29-b3cf-24547af1718b",
+				"method": "GET"
+			},
+			{
+				"id": "593bfc28-ea6f-43ff-b036-ba525a160e4c",
+				"method": "GET"
+			},
+			{
+				"id": "d9563c19-011e-46fc-92a8-928e0ed9564c",
+				"method": "GET"
+			},
+			{
+				"id": "e9f43501-b33b-4f99-857e-69dabd44e279",
+				"method": "GET"
+			},
+			{
+				"id": "52c74cc1-dec4-4d49-8331-7069a25864e5",
+				"method": "POST"
+			},
+			{
+				"id": "5e2b1b27-4853-47ee-9b6e-5d10f060afd0",
+				"method": "POST"
+			},
+			{
+				"id": "89ea75b9-1342-4004-b24f-b2782abb35a5",
+				"method": "GET"
+			},
+			{
+				"id": "b288e08e-f78e-42bf-9ecf-b5c703c56ca7",
+				"method": "DELETE"
+			},
+			{
+				"id": "fffcfcd8-1f2d-4ad0-8055-f73cd9b90156",
+				"method": "DELETE"
+			}
+		]
+	}
+}
